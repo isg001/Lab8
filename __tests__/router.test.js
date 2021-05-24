@@ -1,20 +1,21 @@
-import { pushToHistory } from "../scripts/router";
-
 /**
  * @jest-environment jsdom
  */
 
+ import { pushToHistory } from "../scripts/router";
+
  describe('pushToHistory testing', () => {
+
     test('settings', () => {
-      expect(pushToHistory('settings').length).toBe(2);
-    });
+      expect(pushToHistory('settings', '2').length).toBe(2);
+    })
   
     test('entry', () => {
-      expect(pushToHistory('entry').length).toBe(3);
-    });
+      expect(pushToHistory('entry', '2').length).toBe(3);
+    })
 
     test('default', () => {
-        expect(pushToHistory('default').length).toBe(4);
-    });
+        expect(pushToHistory('', '2').length).toBe(4);
+    })
   });
 

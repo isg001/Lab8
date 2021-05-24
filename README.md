@@ -15,5 +15,15 @@ Yes, such test would entail utilizing a unit test, to utilize in order to see th
 
 4. What do you expect to happen if we run our puppeteer tests with the field “headless” set to true?
 
+If we run our puppeteer tests with the field "headless" set to true, then the browser would not appear when doing the testing. As stated in the lab, the tests would run without the browser user interface. 
+
 5. What would your beforeAll callback look like if you wanted to start from the settings page before every test case?
 
+```
+beforeAll(async () => {
+    beforeEach(async () =>{
+        await page.goto('http://127.0.0.1:5500/');
+        await page.click('header > img[alt="settings"]');  
+    })
+});
+```
