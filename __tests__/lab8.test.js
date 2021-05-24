@@ -117,20 +117,55 @@ describe('Basic user flow for SPA ', () => {
   });
 
   // define and implement test14: Verify the url is correct when clicking on the second entry
-
+  it('Test14: Verify the url is correct when clicking on the second entry', async() => {
+    await page.$$eval('journal-entry', (entries) => entreies[1].click());
+    expect(page.url()).toMatch(/#entry2/);
+  });
 
   // define and implement test15: Verify the title is current when clicking on the second entry
-
+  it('Test15: Verify the title is current when clicking on the second entry', async() => {
+    const head = await page.$eval('h1', elem => elem.innerText);
+    expect(head).toBe('Entry 2');
+  });
 
   // define and implement test16: Verify the entry page contents is correct when clicking on the second entry
-
+  it('Test16: Verify the entry page contents is correct when clicking on the second entry', async() => {
+    expect(await page.$eval('entry-page', elem => elem.entry)).toEqual({
+      "title": "Run, Forrest! Run!",
+          "content": "Mama always said life was like a box of chocolates. You never know what you're gonna get.",
+          "date": "4/26/2021",
+          image: {
+            "alt": "forrest running",
+            "src": "https://s.abcnews.com/images/Entertainment/HT_forrest_gump_ml_140219_4x3_992.jpg",
+      }
+    });
+  });
 
   // create your own test 17
+  it('Test17:', async() => {
+    expect(await page.$eval('entry-page', elem => elem.entry)).toEqual({
+      "title": "Run, Forrest! Run!",
+          "content": "Mama always said life was like a box of chocolates. You never know what you're gonna get.",
+          "date": "4/26/2021",
+          image: {
+            "alt": "forrest running",
+            "src": "https://s.abcnews.com/images/Entertainment/HT_forrest_gump_ml_140219_4x3_992.jpg",
+      }
+    });
+  });
 
   // create your own test 18
+  it('Test18:', async() => {
+    
+  });
 
   // create your own test 19
+  it('Test19:', async() => {
+    
+  });
 
   // create your own test 20
-  
+  it('Test20:', async() => {
+    
+  });
 });
